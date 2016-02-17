@@ -10,7 +10,15 @@ test "layout links" do
     assert_select "a[href=?]", root_path, count: 2
     assert_select "a[href=?]", help_path
     assert_select "a[href=?]", about_path
-    assert_select "a[href=?]", contact_path
-  end
+
+assert_select "a[href=?]", contact_path
+ end
+    test "should get new" do
+    get signup_path
+    #assert_template 'users/new'
+    #assert_select "a[href=?]", signup_path, count:2
+    assert_response :success
+    assert_select "title", "Sign up | Ruby on Rails Tutorial Sample App"
+end
 
 end
